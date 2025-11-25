@@ -1,0 +1,51 @@
+
+:root{
+  --bg: #f2ebe3;
+  --accent: #6f2f31;
+  --accent-soft: #a85a5c;
+  --card-bg: #fff; /* usei #fff para ficar claro */
+  --muted: #7a554f;
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  background:var(--bg);
+  color:var(--muted);
+}
+
+/* Layout */
+.sidebar{
+  position:fixed;left:0;top:0;bottom:0;width:260px;
+  background:var(--accent);color:#fff;padding:28px 18px;display:flex;flex-direction:column;justify-content:space-between;
+  box-shadow: 8px 0 24px rgba(39,20,20,0.06);
+}
+
+.brand{display:flex;align-items:center;gap:12px}
+.brand-img{width:44px;height:44px;border-radius:50%;background:#fff;padding:6px;object-fit:cover}
+.brand-title{font-weight:700;font-size:18px}
+.brand-sub{font-size:13px;opacity:0.9}
+
+.nav{margin-top:26px;display:flex;flex-direction:column;gap:10px}
+.nav-item{
+  display:flex;align-items:center;gap:12px;padding:12px 14px;border-radius:8px;color:rgba(255,255,255,0.9);text-decoration:none;cursor:pointer;font-size:15px
+}
+.nav-item .icon{width:22px;text-align:center}
+.nav-item.active{background:rgba(255,255,255,0.9);color:var(--accent);font-weight:600}
+
+.sidebar-footer{border-top:1px solid rgba(255,255,255,0.04);padding-top:16px}
+.logout{display:flex;align-items:center;gap:8px;color:rgba(255,255,255,0.9);cursor:pointer}
+
+/* Main area */
+.main{margin-left:260px;padding:38px 48px}
+.header h1{font-size:36px;color:var(--accent);margin-bottom:18px}
+
+.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;margin-bottom:28px}
+.card{background:var(--card-bg);border-radius:12px;overflow:hidden;box-shadow:0 10px 28px rgba(39,20,20,0.06)}
+.card.stat{min-height:120px}
+.card-top{background:var(--accent);padding:18px;border-radius:10px 10px 0 0;color:#fff;display:flex;align-items:center}
+.card-top .card-icon{font-size:20px}
+.card-body{padding:18px}
+.stat-number{font-weight:700;color:var(--accent);font-size:20px;margin-bottom:6px}
+.stat-label{color:var(--muted);font-size:14px}
