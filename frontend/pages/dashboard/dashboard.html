@@ -1,86 +1,142 @@
-<!doctype html>
-<html lang="pt-BR">
+<!DOCTYPE html>
+<html lang="pt-br">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Dashboard - Secretaria Escolar</title>
-  <link rel="stylesheet" href="dashboard.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secretaria - Dashboard</title>
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
 </head>
 <body>
-  <aside class="sidebar">
-    <div class="brand">
-      <img src="/mnt/data/27b5896e-e135-4761-8bad-c6a9c726650f.png" alt="logo" class="brand-img">
-      <div class="brand-text">
-        <div class="brand-title">Secretaria</div>
-        <div class="brand-sub">Administrador</div>
-      </div>
+
+    <div class="layout-container">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="logo-icon">
+                    <i class="ph ph-buildings"></i>
+                </div>
+                <div class="logo-text">
+                    <h1>Secretaria</h1>
+                    <span>Administrador</span>
+                </div>
+            </div>
+
+            <nav class="sidebar-nav">
+                <ul>
+                    <li class="active">
+                        <a href="#">
+                            <i class="ph ph-squares-four"></i>
+                            Dashboard
+                        </a>
+                    </li>
+                    <li>
+                        <a href="alunos.html">
+                            <i class="ph ph-users"></i>
+                            Alunos
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="ph ph-graduation-cap"></i>
+                            Turmas
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="ph ph-clipboard-text"></i>
+                            Matrículas
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="ph ph-book-open"></i>
+                            Histórico/Notas
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="ph ph-file-text"></i>
+                            Atendimentos
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+            <div class="sidebar-footer">
+                <a href="#" class="logout-link">
+                    <i class="ph ph-sign-out"></i>
+                    Sair
+                </a>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <header class="top-header">
+                <h2 class="page-title">Dashboard</h2>
+            </header>
+
+            <section class="stats-grid">
+                <div class="stat-card">
+                    <div class="card-header-stripe bg-primary">
+                        <i class="ph ph-users"></i>
+                    </div>
+                    <div class="card-body">
+                        <span class="stat-number">0</span>
+                        <span class="stat-label">Alunos Ativos</span>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="card-header-stripe bg-primary">
+                        <i class="ph ph-graduation-cap"></i>
+                    </div>
+                    <div class="card-body">
+                        <span class="stat-number">0</span>
+                        <span class="stat-label">Turmas Abertas</span>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="card-header-stripe bg-secondary">
+                        <i class="ph ph-user-check"></i>
+                    </div>
+                    <div class="card-body">
+                        <span class="stat-number">0</span>
+                        <span class="stat-label">Matrículas</span>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="card-header-stripe bg-secondary">
+                        <i class="ph ph-file-text"></i>
+                    </div>
+                    <div class="card-body">
+                        <span class="stat-number">0</span>
+                        <span class="stat-label">Solicitações Abertas</span>
+                    </div>
+                </div>
+            </section>
+
+            <section class="lists-grid">
+                <div class="list-card">
+                    <h3>Últimos Alunos Cadastrados</h3>
+                    <div class="list-empty-state">
+                        Nenhum aluno cadastrado
+                    </div>
+                </div>
+
+                <div class="list-card">
+                    <h3>Solicitações Recentes</h3>
+                    <div class="list-empty-state">
+                        Nenhuma solicitação
+                    </div>
+                </div>
+            </section>
+        </main>
     </div>
 
-    <nav class="nav">
-      <a class="nav-item active"><span class="icon">🏠</span> Dashboard</a>
-      <a class="nav-item"><span class="icon">👥</span> Alunos</a>
-      <a class="nav-item"><span class="icon">🎓</span> Turmas</a>
-      <a class="nav-item"><span class="icon">📝</span> Matrículas</a>
-      <a class="nav-item"><span class="icon">📚</span> Histórico/Notas</a>
-      <a class="nav-item"><span class="icon">📋</span> Atendimentos</a>
-    </nav>
-
-    <div class="sidebar-footer">
-      <a class="logout"><span class="icon">↪</span> Sair</a>
-    </div>
-  </aside>
-
-  <main class="main">
-    <header class="header">
-      <h1>Dashboard</h1>
-    </header>
-
-    <section class="cards">
-      <div class="card stat">
-        <div class="card-top"><span class="card-icon">👥</span></div>
-        <div class="card-body">
-          <div class="stat-number">0</div>
-          <div class="stat-label">Alunos Ativos</div>
-        </div>
-      </div>
-
-      <div class="card stat">
-        <div class="card-top"><span class="card-icon">🎓</span></div>
-        <div class="card-body">
-          <div class="stat-number">0</div>
-          <div class="stat-label">Turmas Abertas</div>
-        </div>
-      </div>
-
-      <div class="card stat">
-        <div class="card-top"><span class="card-icon">🧑‍🏫</span></div>
-        <div class="card-body">
-          <div class="stat-number">0</div>
-          <div class="stat-label">Matrículas</div>
-        </div>
-      </div>
-
-      <div class="card stat">
-        <div class="card-top"><span class="card-icon">📄</span></div>
-        <div class="card-body">
-          <div class="stat-number">0</div>
-          <div class="stat-label">Solicitações Abertas</div>
-        </div>
-      </div>
-    </section>
-
-    <section class="panels">
-      <div class="panel">
-        <h3>Últimos Alunos Cadastrados</h3>
-        <div class="panel-body">Nenhum aluno cadastrado</div>
-      </div>
-
-      <div class="panel">
-        <h3>Solicitações Recentes</h3>
-        <div class="panel-body">Nenhuma solicitação</div>
-      </div>
-    </section>
-
-  </main>
 </body>
 </html>

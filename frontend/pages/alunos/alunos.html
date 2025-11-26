@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secretaria - Alunos</title>
+    <link rel="stylesheet" href="alunos.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+</head>
+<body>
+
+    <div class="layout-container">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="logo-icon">
+                    <i class="ph ph-buildings"></i>
+                </div>
+                <div class="logo-text">
+                    <h1>Secretaria</h1>
+                    <span>Administrador</span>
+                </div>
+            </div>
+
+            <nav class="sidebar-nav">
+                <ul>
+                    <li>
+                        <a href="#">
+                            <i class="ph ph-squares-four"></i>
+                            Dashboard
+                        </a>
+                    </li>
+                    <li class="active">
+                        <a href="#">
+                            <i class="ph ph-users"></i>
+                            Alunos
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="ph ph-graduation-cap"></i>
+                            Turmas
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="ph ph-clipboard-text"></i>
+                            Matrículas
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="ph ph-book-open"></i>
+                            Histórico/Notas
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="ph ph-file-text"></i>
+                            Atendimentos
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+            <div class="sidebar-footer">
+                <a href="#" class="logout-link">
+                    <i class="ph ph-sign-out"></i>
+                    Sair
+                </a>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <header class="top-header">
+                <h2 class="page-title">Alunos</h2>
+                <button class="btn-novo" id="btnNovoAluno">
+                    <i class="ph ph-plus"></i> Novo Aluno
+                </button>
+            </header>
+
+            <section class="content-card">
+                <div class="search-bar">
+                    <i class="ph ph-magnifying-glass"></i>
+                    <input type="text" placeholder="Buscar por nome ou CPF...">
+                </div>
+
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Nome</th>
+                                <th>CPF</th>
+                                <th>E-mail</th>
+                                <th>Status</th>
+                                <th class="text-right">Ações</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="empty-state">
+                                <td colspan="5">
+                                    Nenhum aluno encontrado
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <div class="modal-overlay" id="modalNovoAluno">
+        <div class="modal-container">
+            <div class="modal-header">
+                <h3>Novo Aluno</h3>
+                <button class="modal-close" id="btnFecharModal">
+                    <i class="ph ph-x"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-group">
+                        <label for="nome">Nome Completo</label>
+                        <input type="text" id="nome" name="nome">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="cpf">CPF</label>
+                        <input type="text" id="cpf" name="cpf" placeholder="000.000.000-00">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="dataNascimento">Data de Nascimento</label>
+                        <input type="date" id="dataNascimento" name="dataNascimento">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="telefone">Telefone</label>
+                        <input type="tel" id="telefone" name="telefone">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">E-mail</label>
+                        <input type="email" id="email" name="email">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="endereco">Endereço</label>
+                        <input type="text" id="endereco" name="endereco">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="situacao">Situação</label>
+                        <select id="situacao" name="situacao">
+                            <option value="ativo">Ativo</option>
+                            <option value="inativo">Inativo</option>
+                        </select>
+                    </div>
+
+                    <button type="submit" class="btn-salvar">Salvar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const modal = document.getElementById('modalNovoAluno');
+        const btnNovoAluno = document.getElementById('btnNovoAluno');
+        const btnFecharModal = document.getElementById('btnFecharModal');
+
+        // Abrir modal
+        btnNovoAluno.addEventListener('click', () => {
+            modal.classList.add('show');
+        });
+
+        // Fechar modal ao clicar no X
+        btnFecharModal.addEventListener('click', () => {
+            modal.classList.remove('show');
+        });
+
+        // Fechar modal ao clicar fora da caixa
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.classList.remove('show');
+            }
+        });
+    </script>
+
+</body>
+</html>

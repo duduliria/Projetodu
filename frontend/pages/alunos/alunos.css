@@ -1,0 +1,394 @@
+/* Reset e Variáveis */
+:root {
+    --primary-maroon: #6D313B;       /* Cor vinho da sidebar/botões */
+    --primary-hover: #5a2830;
+    --bg-body: #F5F2EC;              /* Fundo bege claro */
+    --bg-card: #FFFFFF;              /* Fundo branco do card */
+    --active-item-bg: #F3F0E9;       /* Fundo do item ativo na sidebar */
+    --text-maroon: #5E2B32;          /* Texto títulos */
+    --text-gray: #888888;            /* Texto placeholder/secundário */
+    --border-color: #E0E0E0;
+    --input-border: #DDDDDD;         /* Borda dos inputs */
+    
+    --font-serif: 'DM Serif Display', serif;
+    --font-sans: 'Inter', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-sans);
+    background-color: var(--bg-body);
+    color: var(--text-maroon);
+    height: 100vh;
+    overflow: hidden; 
+}
+
+.layout-container {
+    display: flex;
+    height: 100%;
+}
+
+/* --- SIDEBAR (Mesmo código anterior) --- */
+.sidebar {
+    width: 260px;
+    background-color: var(--primary-maroon);
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    padding: 24px 16px;
+    flex-shrink: 0;
+}
+
+.sidebar-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 40px;
+    padding-left: 8px;
+}
+
+.logo-icon {
+    background-color: rgba(255, 255, 255, 0.1);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.logo-icon i {
+    font-size: 20px;
+}
+
+.logo-text h1 {
+    font-family: var(--font-serif);
+    font-size: 1.2rem;
+    font-weight: normal;
+    line-height: 1;
+}
+
+.logo-text span {
+    font-size: 0.75rem;
+    opacity: 0.8;
+    font-weight: 300;
+}
+
+.sidebar-nav ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.sidebar-nav a {
+    text-decoration: none;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 16px;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    font-weight: 400;
+    transition: background 0.2s;
+}
+
+.sidebar-nav a i {
+    font-size: 1.2rem;
+}
+
+.sidebar-nav li.active a {
+    background-color: var(--active-item-bg);
+    color: var(--primary-maroon);
+    font-weight: 600;
+}
+
+.sidebar-nav li:not(.active) a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.sidebar-footer {
+    margin-top: auto;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.logout-link {
+    color: #fff;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 16px;
+    font-size: 0.95rem;
+}
+
+/* --- MAIN CONTENT --- */
+.main-content {
+    flex: 1;
+    padding: 32px 40px;
+    overflow-y: auto;
+}
+
+.top-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+.page-title {
+    font-family: var(--font-serif);
+    font-size: 2rem;
+    color: var(--text-maroon);
+}
+
+.btn-novo {
+    background-color: var(--primary-maroon);
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    font-family: var(--font-sans);
+    font-weight: 500;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.9rem;
+    transition: background 0.2s;
+}
+
+.btn-novo:hover {
+    background-color: var(--primary-hover);
+}
+
+/* --- CONTENT CARD --- */
+.content-card {
+    background-color: var(--bg-card);
+    border-radius: 12px;
+    padding: 24px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+    min-height: 400px;
+}
+
+.search-bar {
+    position: relative;
+    margin-bottom: 24px;
+}
+
+.search-bar i {
+    position: absolute;
+    left: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #aaa;
+    font-size: 1.2rem;
+}
+
+.search-bar input {
+    width: 100%;
+    padding: 12px 12px 12px 48px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-family: var(--font-sans);
+    font-size: 0.95rem;
+    outline: none;
+    color: var(--text-maroon);
+    background-color: transparent; /* Fundo transparente na busca principal */
+}
+
+.search-bar input::placeholder {
+    color: #aaa;
+}
+
+.search-bar input:focus {
+    border-color: var(--primary-maroon);
+}
+
+.table-container {
+    width: 100%;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+thead {
+    background-color: #F7F5F0;
+    border-bottom: 1px solid #eee;
+}
+
+th {
+    text-align: left;
+    padding: 14px 16px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--text-maroon);
+    font-family: var(--font-serif);
+}
+
+.text-right {
+    text-align: right;
+}
+
+td {
+    padding: 20px 16px;
+    color: #555;
+    font-size: 0.9rem;
+}
+
+.empty-state td {
+    text-align: center;
+    padding: 60px 0;
+    color: #777;
+    font-weight: 400;
+}
+
+/* =========================================
+   ESTILOS DO MODAL (NOVO CÓDIGO)
+========================================= */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Fundo escuro transparente */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    
+    /* Escondido por padrão */
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+/* Classe adicionada via JS para mostrar o modal */
+.modal-overlay.show {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.modal-container {
+    background-color: #fff;
+    width: 500px;
+    max-width: 90%;
+    border-radius: 12px;
+    overflow: hidden; /* Para o header não sair das bordas arredondadas */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    transform: translateY(20px);
+    transition: transform 0.3s ease;
+}
+
+.modal-overlay.show .modal-container {
+    transform: translateY(0);
+}
+
+/* Cabeçalho do Modal */
+.modal-header {
+    background-color: var(--primary-maroon);
+    color: #fff;
+    padding: 16px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.modal-header h3 {
+    font-family: var(--font-serif);
+    font-weight: normal;
+    font-size: 1.3rem;
+}
+
+.modal-close {
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 1.2rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4px;
+}
+
+/* Corpo do Modal (Formulário) */
+.modal-body {
+    padding: 24px;
+    max-height: 80vh; /* Se a tela for pequena, permite scroll no modal */
+    overflow-y: auto;
+}
+
+.form-group {
+    margin-bottom: 16px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 6px;
+    font-family: var(--font-serif);
+    color: var(--text-maroon);
+    font-size: 0.9rem;
+}
+
+/* Estilo dos inputs dentro do modal */
+.modal-body input[type="text"],
+.modal-body input[type="email"],
+.modal-body input[type="tel"],
+.modal-body input[type="date"],
+.modal-body select {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid var(--input-border);
+    border-radius: 6px;
+    font-family: var(--font-sans);
+    font-size: 0.95rem;
+    color: #333;
+    background-color: #fff;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.modal-body input:focus,
+.modal-body select:focus {
+    border-color: var(--primary-maroon);
+}
+
+.modal-body input::placeholder {
+    color: #ccc;
+}
+
+/* Ajuste específico para o input de data para parecer com o design */
+input[type="date"] {
+    color: #555;
+}
+
+/* Botão Salvar (Full Width) */
+.btn-salvar {
+    width: 100%;
+    padding: 12px;
+    background-color: var(--primary-maroon);
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    font-family: var(--font-serif); /* Fonte serif no botão salvar conforme imagem */
+    font-size: 1.1rem;
+    cursor: pointer;
+    margin-top: 16px;
+    transition: background-color 0.2s;
+}
+
+.btn-salvar:hover {
+    background-color: var(--primary-hover);
+}

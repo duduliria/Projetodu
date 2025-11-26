@@ -1,51 +1,250 @@
-
-:root{
-  --bg: #f2ebe3;
-  --accent: #6f2f31;
-  --accent-soft: #a85a5c;
-  --card-bg: #fff; /* usei #fff para ficar claro */
-  --muted: #7a554f;
+/* Reset e Variáveis */
+:root {
+    --primary-maroon: #6D313B;       /* Vinho Escuro (Sidebar e Cards 1/2) */
+    --secondary-maroon: #A65D66;     /* Vermelho Rosado (Cards 3/4) */
+    --bg-body: #F5F2EC;              /* Fundo Bege */
+    --bg-card: #FFFFFF;              /* Fundo Branco */
+    --active-item-bg: #F3F0E9;
+    --text-maroon: #5E2B32;          /* Texto Títulos */
+    --text-gray: #888888;
+    
+    --font-serif: 'DM Serif Display', serif;
+    --font-sans: 'Inter', sans-serif;
 }
 
-*{box-sizing:border-box;margin:0;padding:0}
-html,body{height:100%}
-body{
-  font-family: Georgia, 'Times New Roman', Times, serif;
-  background:var(--bg);
-  color:var(--muted);
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-/* Layout */
-.sidebar{
-  position:fixed;left:0;top:0;bottom:0;width:260px;
-  background:var(--accent);color:#fff;padding:28px 18px;display:flex;flex-direction:column;justify-content:space-between;
-  box-shadow: 8px 0 24px rgba(39,20,20,0.06);
+body {
+    font-family: var(--font-sans);
+    background-color: var(--bg-body);
+    color: var(--text-maroon);
+    height: 100vh;
+    overflow: hidden; 
 }
 
-.brand{display:flex;align-items:center;gap:12px}
-.brand-img{width:44px;height:44px;border-radius:50%;background:#fff;padding:6px;object-fit:cover}
-.brand-title{font-weight:700;font-size:18px}
-.brand-sub{font-size:13px;opacity:0.9}
-
-.nav{margin-top:26px;display:flex;flex-direction:column;gap:10px}
-.nav-item{
-  display:flex;align-items:center;gap:12px;padding:12px 14px;border-radius:8px;color:rgba(255,255,255,0.9);text-decoration:none;cursor:pointer;font-size:15px
+.layout-container {
+    display: flex;
+    height: 100%;
 }
-.nav-item .icon{width:22px;text-align:center}
-.nav-item.active{background:rgba(255,255,255,0.9);color:var(--accent);font-weight:600}
 
-.sidebar-footer{border-top:1px solid rgba(255,255,255,0.04);padding-top:16px}
-.logout{display:flex;align-items:center;gap:8px;color:rgba(255,255,255,0.9);cursor:pointer}
+/* --- SIDEBAR (Reutilizado do projeto anterior) --- */
+.sidebar {
+    width: 260px;
+    background-color: var(--primary-maroon);
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    padding: 24px 16px;
+    flex-shrink: 0;
+}
 
-/* Main area */
-.main{margin-left:260px;padding:38px 48px}
-.header h1{font-size:36px;color:var(--accent);margin-bottom:18px}
+.sidebar-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 40px;
+    padding-left: 8px;
+}
 
-.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;margin-bottom:28px}
-.card{background:var(--card-bg);border-radius:12px;overflow:hidden;box-shadow:0 10px 28px rgba(39,20,20,0.06)}
-.card.stat{min-height:120px}
-.card-top{background:var(--accent);padding:18px;border-radius:10px 10px 0 0;color:#fff;display:flex;align-items:center}
-.card-top .card-icon{font-size:20px}
-.card-body{padding:18px}
-.stat-number{font-weight:700;color:var(--accent);font-size:20px;margin-bottom:6px}
-.stat-label{color:var(--muted);font-size:14px}
+.logo-icon {
+    background-color: rgba(255, 255, 255, 0.1);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.logo-icon i { font-size: 20px; }
+
+.logo-text h1 {
+    font-family: var(--font-serif);
+    font-size: 1.2rem;
+    font-weight: normal;
+    line-height: 1;
+}
+
+.logo-text span {
+    font-size: 0.75rem;
+    opacity: 0.8;
+    font-weight: 300;
+}
+
+.sidebar-nav ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.sidebar-nav a {
+    text-decoration: none;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 16px;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    font-weight: 400;
+    transition: background 0.2s;
+}
+
+.sidebar-nav a i { font-size: 1.2rem; }
+
+/* Estado Ativo */
+.sidebar-nav li.active a {
+    background-color: var(--active-item-bg);
+    color: var(--primary-maroon);
+    font-weight: 600;
+}
+
+.sidebar-nav li:not(.active) a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.sidebar-footer {
+    margin-top: auto;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.logout-link {
+    color: #fff;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 16px;
+    font-size: 0.95rem;
+}
+
+/* --- MAIN CONTENT --- */
+.main-content {
+    flex: 1;
+    padding: 32px 40px;
+    overflow-y: auto;
+}
+
+.top-header {
+    margin-bottom: 32px;
+}
+
+.page-title {
+    font-family: var(--font-serif);
+    font-size: 2rem;
+    color: var(--text-maroon);
+}
+
+/* --- GRID DE ESTATÍSTICAS (Cards do Topo) --- */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 colunas iguais */
+    gap: 24px;
+    margin-bottom: 32px;
+}
+
+.stat-card {
+    background-color: var(--bg-card);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    display: flex;
+    flex-direction: column;
+}
+
+/* Faixa Colorida com ícone */
+.card-header-stripe {
+    height: 70px; /* Altura visual da faixa colorida */
+    padding: 16px 20px;
+    display: flex;
+    align-items: center;
+}
+
+.card-header-stripe i {
+    color: #fff;
+    font-size: 1.8rem;
+}
+
+/* Cores específicas baseadas na imagem */
+.bg-primary {
+    background-color: var(--primary-maroon);
+}
+
+.bg-secondary {
+    background-color: var(--secondary-maroon);
+}
+
+/* Corpo do card estatístico */
+.card-body {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.stat-number {
+    font-family: var(--font-serif);
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--primary-maroon); /* O número 0 é vinho */
+}
+
+.stat-label {
+    font-size: 0.9rem;
+    color: #666;
+    font-weight: 400;
+}
+
+/* --- GRID DE LISTAS (Cards de baixo) --- */
+.lists-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* 2 colunas iguais */
+    gap: 24px;
+}
+
+.list-card {
+    background-color: var(--bg-card);
+    border-radius: 12px;
+    padding: 24px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    min-height: 200px;
+}
+
+.list-card h3 {
+    font-family: var(--font-serif);
+    color: var(--primary-maroon); /* Títulos das seções em vinho */
+    font-size: 1.2rem;
+    margin-bottom: 24px;
+}
+
+.list-empty-state {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100px;
+    color: #777;
+    font-size: 0.95rem;
+}
+
+/* Responsividade Básica */
+@media (max-width: 1200px) {
+    .stats-grid {
+        grid-template-columns: 1fr 1fr; /* Vira 2 colunas em telas menores */
+    }
+}
+
+@media (max-width: 768px) {
+    .stats-grid, .lists-grid {
+        grid-template-columns: 1fr; /* Vira 1 coluna em mobile */
+    }
+    .sidebar {
+        display: none; /* Esconde sidebar em mobile simples */
+    }
+}

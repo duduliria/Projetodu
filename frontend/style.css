@@ -1,87 +1,163 @@
-*{box-sizing:border-box;margin:0;padding:0}
-html,body{height:100%}
-body{
-font-family:'Georgia','Times New Roman',Times,serif;
-background:linear-gradient(180deg,#efe9e0 0%,#f7f1ea 100%);
-display:flex;align-items:center;justify-content:center;
-padding:32px;
+/* Reset e Variáveis */
+:root {
+    --primary-maroon: #6D313B;       /* Cor vinho principal */
+    --primary-hover: #5a2830;
+    --bg-body: #EFECE6;              /* Fundo bege da tela de login (levemente mais escuro que o painel) */
+    --bg-card: #FFFFFF;
+    --text-maroon: #5E2B32;
+    --text-body: #555555;
+    --border-color: #DDDDDD;
+    
+    --font-serif: 'DM Serif Display', serif;
+    --font-sans: 'Inter', sans-serif;
 }
 
-
-.page-wrap{
-padding:28px;border-radius:14px;
-box-shadow:0 6px 18px rgba(39,20,20,0.06);
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-
-.card{
-width:380px;max-width:94vw;background:#fff;border-radius:12px;
-box-shadow:0 18px 30px rgba(39,20,20,0.08), inset 0 1px 0 rgba(255,255,255,0.6);
-overflow:hidden;
+body {
+    font-family: var(--font-sans);
+    background-color: var(--bg-body);
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-
-.card__top{
-background:#6f2f31;color:#fff;padding:36px 22px 28px;text-align:center;
+/* Wrapper principal */
+.login-wrapper {
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
 }
 
-
-.brand-icon{
-width:72px;height:72px;border-radius:50%;background:#f3eae6;
-display:inline-flex;align-items:center;justify-content:center;
-margin:-48px auto 8px;box-shadow:0 6px 18px rgba(0,0,0,0.12);
-border:6px solid rgba(255,255,255,0.06);
+/* Card de Login */
+.login-card {
+    width: 100%;
+    max-width: 400px;
+    border-radius: 12px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+    overflow: hidden; /* Garante que o header siga o border-radius */
+    background-color: var(--bg-card);
 }
 
-
-.brand-icon svg{width:36px;height:36px;fill:#6f2f31}
-
-
-.card__title{font-size:24px;font-weight:700;margin-top:6px}
-.card__subtitle{font-size:14px;color:rgba(255,255,255,0.9);margin-top:6px}
-
-
-.card__body{padding:26px 28px 30px;background:#fff}
-
-
-.field{margin-bottom:18px}
-label{display:block;color:#6b3b39;font-size:14px;margin-bottom:8px}
-
-
-.input{
-width:100%;padding:12px 14px;border-radius:10px;border:1.5px solid #e7d9d2;
-background:transparent;font-size:14px;color:#5a3a38;outline:none;
-box-shadow:inset 0 1px 0 rgba(255,255,255,0.6);
-transition:box-shadow .15s,border-color .15s;
+/* --- Cabeçalho (Vinho) --- */
+.card-header {
+    background-color: var(--primary-maroon);
+    color: #fff;
+    padding: 40px 30px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-
-.input::placeholder{color:#d6c9c4}
-
-
-.input:focus{
-border-color:#caaea9;box-shadow:0 4px 12px rgba(111,47,49,0.06);
+.logo-circle {
+    background-color: #fff;
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 16px;
+    color: var(--primary-maroon);
 }
 
-
-select.input{
-appearance:none;
-background-image:linear-gradient(45deg,transparent 50%,#caaea9 50%),
-linear-gradient(135deg,#caaea9 50%,transparent 50%);
-background-position:calc(100% - 18px) calc(1em + 2px),
-calc(100% - 13px) calc(1em + 2px);
-background-size:6px 6px,6px 6px;background-repeat:no-repeat;padding-right:40px;
+.logo-circle i {
+    font-size: 32px;
 }
 
-
-.btn{
-display:block;width:100%;padding:12px 16px;border-radius:10px;
-background:#6f2f31;color:#fff;font-weight:700;border:none;cursor:pointer;
-font-size:16px;box-shadow:0 8px 18px rgba(111,47,49,0.18);
+.card-header h1 {
+    font-family: var(--font-serif);
+    font-size: 1.6rem;
+    font-weight: normal;
+    margin-bottom: 4px;
+    color: #FFF; /* Branco amarelado */
+    text-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
+.card-header p {
+    font-size: 0.9rem;
+    font-weight: 300;
+    opacity: 0.9;
+}
 
-.btn:active{transform:translateY(1px)}
+/* --- Corpo (Formulário) --- */
+.card-body {
+    padding: 30px;
+    background-color: #fff;
+}
 
+.form-group {
+    margin-bottom: 20px;
+}
 
-@media(min-width:880px){.card{width:420px}}
+.form-group label {
+    display: block;
+    font-family: var(--font-serif);
+    color: var(--primary-maroon); /* Labels em vinho/marrom */
+    font-size: 0.95rem;
+    margin-bottom: 8px;
+}
+
+/* Estilos de Input e Select */
+input[type="email"],
+input[type="password"],
+select {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    color: var(--text-body);
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    background-color: #fff;
+}
+
+/* Placeholder styling */
+input::placeholder {
+    color: #bbb;
+}
+
+/* Estado de foco */
+input:focus,
+select:focus {
+    border-color: var(--primary-maroon);
+    box-shadow: 0 0 0 3px rgba(109, 49, 59, 0.1);
+}
+
+/* Ajuste para o Select parecer igual a imagem */
+select {
+    appearance: none; /* Remove seta padrão do navegador */
+    background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23333%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E");
+    background-repeat: no-repeat;
+    background-position: right 14px top 50%;
+    background-size: 10px auto;
+    cursor: pointer;
+}
+
+/* Botão Entrar */
+.btn-entrar {
+    width: 100%;
+    margin-top: 10px;
+    padding: 14px;
+    background-color: var(--primary-maroon);
+    color: #fff;
+    font-family: var(--font-serif);
+    font-size: 1.1rem;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.btn-entrar:hover {
+    background-color: var(--primary-hover);
+}
