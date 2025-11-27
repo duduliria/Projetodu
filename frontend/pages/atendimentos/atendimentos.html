@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,9 +8,12 @@
     <link rel="stylesheet" href="atendimentos.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
 </head>
+
 <body>
 
     <div class="layout-container">
@@ -26,38 +30,38 @@
 
             <nav class="sidebar-nav">
                 <ul>
-                    <li>
-                        <a href="dashboard.html">
+                    <li class="active">
+                        <a href="../dashboard/dashboard.html">
                             <i class="ph ph-squares-four"></i>
                             Dashboard
                         </a>
                     </li>
                     <li>
-                        <a href="alunos.html">
+                        <a href="../alunos/alunos.html">
                             <i class="ph ph-users"></i>
                             Alunos
                         </a>
                     </li>
                     <li>
-                        <a href="turmas.html">
+                        <a href="../turmas/turmas.html">
                             <i class="ph ph-graduation-cap"></i>
                             Turmas
                         </a>
                     </li>
                     <li>
-                        <a href="matriculas.html">
+                        <a href="../matriculas/matriculas.html">
                             <i class="ph ph-clipboard-text"></i>
                             Matrículas
                         </a>
                     </li>
                     <li>
-                        <a href="notas.html">
+                        <a href="../notas/notas.html">
                             <i class="ph ph-book-open"></i>
                             Histórico/Notas
                         </a>
                     </li>
-                    <li class="active">
-                        <a href="#">
+                    <li>
+                        <a href="../atendimentos/atendimentos.html">
                             <i class="ph ph-file-text"></i>
                             Atendimentos
                         </a>
@@ -66,7 +70,7 @@
             </nav>
 
             <div class="sidebar-footer">
-                <a href="index.html" class="logout-link">
+                <a href="../../index.html" class="logout-link">
                     <i class="ph ph-sign-out"></i>
                     Sair
                 </a>
@@ -150,6 +154,23 @@
     </div>
 
     <script>
+        // Function to set active navigation based on current page
+        function setActiveNav() {
+            const currentPath = window.location.pathname;
+            const navItems = document.querySelectorAll('.sidebar-nav ul li');
+
+            navItems.forEach(item => {
+                item.classList.remove('active');
+                const link = item.querySelector('a');
+                if (link && currentPath.includes(link.getAttribute('href').split('/').pop())) {
+                    item.classList.add('active');
+                }
+            });
+        }
+
+        // Set active navigation on page load
+        document.addEventListener('DOMContentLoaded', setActiveNav);
+
         const modal = document.getElementById('modalAtendimentos');
         const btnNova = document.getElementById('btnNovaSolicitacao');
         const btnFechar = document.getElementById('btnFecharModal');
@@ -170,4 +191,5 @@
     </script>
 
 </body>
+
 </html>
